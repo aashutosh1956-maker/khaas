@@ -31,7 +31,7 @@
     <div class="icon-btn">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
     </div>
-    <div class="avatar">J</div>
+    <div class="avatar" id="avatarBtn" title="Sign In">J</div>
   </div>
 </nav>
 
@@ -99,6 +99,32 @@
       <div class="modal-meta" id="modalMeta"></div>
       <p class="modal-desc" id="modalDesc"></p>
     </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="authOverlay">
+  <div class="modal-box auth-box">
+    <button class="modal-close" id="authClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="auth-header">
+      <div class="auth-logo">KHAAS</div>
+      <div class="auth-title">Sign In</div>
+      <div class="auth-sub">Welcome back — enter your details to continue.</div>
+    </div>
+    <form class="auth-form" id="authForm" novalidate>
+      <div class="field">
+        <label for="authEmail">Email</label>
+        <input type="email" id="authEmail" autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label for="authPassword">Password</label>
+        <input type="password" id="authPassword" autocomplete="current-password" placeholder="••••••••">
+      </div>
+      <div class="auth-error" id="authError"></div>
+      <button type="submit" class="btn btn-primary auth-submit" id="authSubmit">Sign In</button>
+      <div class="auth-switch">New to KHAAS? <a href="#">Sign up now</a></div>
+    </form>
   </div>
 </div>
 

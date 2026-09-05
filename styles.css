@@ -261,6 +261,37 @@
   .modal-desc{ font-size:14.5px; line-height:1.65; color: var(--text-dim); }
   body.modal-open{ overflow:hidden; }
 
+  /* ---------- SIGN IN MODAL ---------- */
+  .modal-box.auth-box{ width:min(400px, 100%); }
+  .auth-header{ text-align:center; padding:36px 28px 6px; }
+  .auth-logo{
+    font-family:'Bebas Neue', sans-serif;
+    color: var(--teal); font-size:22px; letter-spacing:2px;
+    margin-bottom:20px;
+  }
+  .auth-title{ font-size:22px; font-weight:600; margin-bottom:6px; }
+  .auth-sub{ font-size:13.5px; color: var(--text-dim); margin-bottom:6px; }
+  .auth-form{ padding:22px 28px 30px; display:flex; flex-direction:column; gap:14px; }
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{ font-size:12.5px; color: var(--text-dim); }
+  .field input{
+    background: var(--surface);
+    border:1px solid var(--border);
+    border-radius:5px;
+    padding:12px 13px;
+    color: var(--text);
+    font-size:14px;
+    font-family:'Inter', sans-serif;
+  }
+  .field input::placeholder{ color: var(--text-faint); }
+  .field input:focus{ outline:none; border-color: var(--teal); }
+  .auth-error{ font-size:13px; color:#FF8A8A; min-height:2px; }
+  .auth-submit{ width:100%; justify-content:center; margin-top:2px; }
+  .auth-submit:disabled{ opacity:0.7; cursor:default; }
+  .auth-switch{ font-size:13px; color: var(--text-dim); text-align:center; margin-top:6px; }
+  .auth-switch a{ color: var(--text); font-weight:600; text-decoration:none; }
+  .auth-switch a:hover{ text-decoration:underline; }
+
   @media (max-width: 860px){
     .nav{ padding:14px 20px; }
     .nav-links{ display:none; }

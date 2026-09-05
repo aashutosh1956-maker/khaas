@@ -186,8 +186,62 @@ function closeDetail() {
 document.getElementById('modalClose').addEventListener('click', closeDetail);
 overlay.addEventListener('click', (e) => { if (e.target === overlay) closeDetail(); });
 window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && overlay.classList.contains('open')) closeDetail();
+  if (e.key !== 'Escape') return;
+  if (overlay.classList.contains('open')) closeDetail();
+  if (authOverlay.classList.contains('open')) closeAuth();
 });
 
 document.getElementById('heroPlayBtn').addEventListener('click', () => openDetail('dark-signal', true));
 document.getElementById('heroInfoBtn').addEventListener('click', () => openDetail('dark-signal', false));
+
+/* ---------- sign in modal ----------
+   Front-end only — there's no backend here, so "signing in" just
+   simulates a request and swaps the avatar initial to match the
+   email entered. Point authForm's submit handler at your real auth
+   endpoint to make it functional. */
+const avatarBtn = document.getElementById('avatarBtn');
+const authOverlay = document.getElementById('authOverlay');
+const authForm = document.getElementById('authForm');
+const authEmail = document.getElementById('authEmail');
+const authPassword = document.getElementById('authPassword');
+const authError = document.getElementById('authError');
+const authSubmit = document.getElementById('authSubmit');
+
+function openAuth() {
+  authOverlay.classList.add('open');
+  document.body.classList.add('modal-open');
+  authEmail.focus();
+}
+
+function closeAuth() {
+  authOverlay.classList.remove('open');
+  document.body.classList.remove('modal-open');
+  authForm.reset();
+  authError.textContent = '';
+}
+
+avatarBtn.addEventListener('click', openAuth);
+document.getElementById('authClose').addEventListener('click', closeAuth);
+authOverlay.addEventListener('click', (e) => { if (e.target === authOverlay) closeAuth(); });
+
+authForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = authEmail.value.trim();
+  const password = authPassword.value;
+
+  if (!email || !password) {
+    authError.textContent = 'Enter your email and password.';
+    return;
+  }
+  authError.textContent = '';
+  authSubmit.disabled = true;
+  authSubmit.textContent = 'Signing in…';
+
+  // simulated request — replace with a real fetch() to your auth API
+  setTimeout(() => {
+    avatarBtn.textContent = email.charAt(0).toUpperCase();
+    authSubmit.disabled = false;
+    authSubmit.textContent = 'Sign In';
+    closeAuth();
+  }, 700);
+});
