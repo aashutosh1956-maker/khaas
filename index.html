@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KHAAS — Dark Signal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-left">
+    <div class="logo">KHAAS</div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">TV Shows</a></li>
+      <li><a href="#">Movies</a></li>
+      <li><a href="#">New &amp; Popular</a></li>
+      <li><a href="#">My List</a></li>
+      <li><a href="#">Browse by Languages</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <div class="search-pill">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <span>What are you looking for?</span>
+    </div>
+    <div class="icon-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+    </div>
+    <div class="avatar">J</div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-backdrop"></div>
+
+  <div class="hero-content">
+    <span class="badge">Khaas Original</span>
+    <h1 class="hero-title">Dark Signal</h1>
+    <p class="hero-desc">When a disgraced detective intercepts a mysterious radio transmission from an abandoned Cold War bunker, she unravels a conspiracy that reaches the highest levels of government — and threatens everyone she loves.</p>
+    <div class="hero-meta">
+      <span class="year">2024</span>
+      <span class="rating-tag">TV-MA</span>
+      <span>2 Seasons</span>
+      <span class="dot">&bull;</span>
+      <span>Thriller, Mystery, Drama</span>
+    </div>
+    <div class="hero-actions">
+      <button class="btn btn-primary" id="heroPlayBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Play
+      </button>
+      <button class="btn btn-secondary" id="heroInfoBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        More Info
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-rating-corner">
+    <span>TV-MA</span>
+  </div>
+</section>
+
+<div class="rows">
+  <div class="row">
+    <div class="row-title"><span class="rank">#1</span> Trending Now</div>
+    <div class="row-track" id="trendingTrack"></div>
+  </div>
+  <div class="row">
+    <div class="row-title">Movies</div>
+    <div class="row-track" id="moviesTrack"></div>
+  </div>
+  <div class="row">
+    <div class="row-title">TV Shows</div>
+    <div class="row-track" id="showsTrack"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-media">
+      <video id="modalVideo" controls playsinline></video>
+      <div class="modal-empty" id="modalEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        <p class="modal-empty-title">No video linked yet</p>
+        <p class="modal-empty-sub">Add a hosted video URL for "<span id="modalEmptyName"></span>" in the CATALOG list in script.js to enable playback.</p>
+      </div>
+    </div>
+    <div class="modal-info">
+      <h2 id="modalTitle"></h2>
+      <div class="modal-meta" id="modalMeta"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.15/dist/hls.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
