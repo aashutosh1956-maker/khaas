@@ -1,0 +1,8 @@
+node_modules/
+.env
+
+# uploaded files are user data, not source — keep the folders, ignore contents
+uploads/*
+!uploads/.gitkeep
+media/*
+!media/.gitkeep
